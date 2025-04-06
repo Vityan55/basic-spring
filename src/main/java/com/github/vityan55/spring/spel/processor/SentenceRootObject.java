@@ -15,7 +15,13 @@ public class SentenceRootObject {
         GREETING_MESSAGES.put(Customer.class, "Hello! Can I place order?");
     }
 
+    public void setGreetingMessage(Object bean){
+        setMessageFor(bean);
+    }
 
+    public static void setStaticGreetingMessage(Object bean){
+        setMessageFor(bean);
+    }
 
     //будем использовать его при настройке SpEl контекста
     public static void setMessageFor(Object bean){
