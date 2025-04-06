@@ -1,12 +1,12 @@
 package com.github.vityan55.spring.spel;
 
-import com.github.vityan55.spring.spel.bean.Customer;
-import com.github.vityan55.spring.spel.bean.Shop;
-import com.github.vityan55.spring.spel.bean.SimpleSpelExamples;
-import com.github.vityan55.spring.spel.bean.Waiter;
+import com.github.vityan55.spring.spel.bean.*;
 import com.github.vityan55.spring.spel.config.ApplicationConfig;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import java.time.LocalTime;
+import java.util.Locale;
 
 public class Main {
 
@@ -37,5 +37,10 @@ public class Main {
         waiter.printGreeting();
         customer.printGreeting();
         System.out.println("---------------------------------------");
+
+        BeanExpressionParser parser = context.getBean(BeanExpressionParser.class);
+        System.out.println("Evaluate open time: " + parser.evaluate("shop.getOpenTime()", LocalTime.class));
+        System.out.println("Evaluate customer greeting " + parser.evaluate("customer.getGreeting()", String.class));
+        System.out.println("Evaluate waiter greeting " + parser.evaluate("waiter.getGreeting()", String.class));
     }
 }

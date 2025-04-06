@@ -51,4 +51,8 @@ public class Shop {
     public void printOpenTime(){
         System.out.println("Open time: " + openTime);
     }
+
+    public LocalTime getOpenTime() {
+        return openTime;
+    }
 }

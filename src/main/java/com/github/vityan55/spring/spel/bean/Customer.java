@@ -6,6 +6,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class Customer {
 
+    //2 вариант выражения, тк мы установили root в context
+    //@Sentence(expression = "#root.setStaticGreetingMessage(#bean)")
     //само выражение - это вызов метода с переменной под именем bean в пакете processor
     @Sentence(expression = "setStaticGreetingMessage(#bean)")
     private String greeting;
